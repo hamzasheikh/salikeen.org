@@ -18,7 +18,7 @@ import time
 
 # Data about this site
 BLOG_AUTHOR = "Dar-us-Salikeen"  # (translatable)
-BLOG_TITLE = "Salikeen"  # (translatable)
+BLOG_TITLE = "Dar-us-Salikeen"  # (translatable)
 # This is the main URL for your site. It will be used
 # in a prominent link. Don't forget the protocol (http/https)!
 SITE_URL = "http://www.salikeen.org/"
@@ -127,15 +127,15 @@ TRANSLATIONS_PATTERN = "{path}.{lang}.{ext}"
 
 NAVIGATION_LINKS = {
     DEFAULT_LANG: (
-        ("/archive.html", "Archive"),
-        ("/categories/index.html", "Tags"),
-        ("/rss.xml", "RSS feed"),
+        # ("/archive.html", "Archive"),
+        # ("/categories/index.html", "Tags"),
+        # ("/rss.xml", "RSS feed"),
     ),
 
     "ur": (
-        ("/ur/archive.html", "آرکائیو"),
-        ("/ur/categories/index.html", "ٹیگز"),
-        ("/ur/rss.xml", "آر ایس ایس فیڈ"),
+        # ("/ur/archive.html", "آرکائیو"),
+        # ("/ur/categories/index.html", "ٹیگز"),
+        # ("/ur/rss.xml", "آر ایس ایس فیڈ"),
     ),
 }
 
@@ -171,14 +171,8 @@ THEME_COLOR = '#5670d4'
 # just independent HTML pages.
 #
 
-POSTS = (
-    ("posts/*.rst", "posts", "post.tmpl"),
-    ("posts/*.txt", "posts", "post.tmpl"),
-)
-PAGES = (
-    ("stories/*.rst", "stories", "story.tmpl"),
-    ("stories/*.txt", "stories", "story.tmpl"),
-)
+POSTS = []
+PAGES = (("content/*.rst", "", "story.tmpl"),)
 
 
 # Below this point, everything is optional
@@ -463,7 +457,7 @@ HIDDEN_AUTHORS = ['Guest']
 
 # Final location for the main blog page and sibling paginated pages is
 # output / TRANSLATION[lang] / INDEX_PATH / index-*.html
-# INDEX_PATH = ""
+INDEX_PATH = "blog"
 
 # Create per-month archives instead of per-year
 # CREATE_MONTHLY_ARCHIVE = False
@@ -779,7 +773,7 @@ LICENSE = ""
 
 # A small copyright notice for the page footer (in HTML).
 # (translatable)
-CONTENT_FOOTER = 'Contents &copy; {date}         <a href="mailto:{email}">{author}</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         {license}'
+CONTENT_FOOTER = '{contents} {copyright} {date} {author} - <a href="license.html">{license}</a> - Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a>'
 
 # Things that will be passed to CONTENT_FOOTER.format().  This is done
 # for translatability, as dicts are not formattable.  Nikola will
@@ -799,7 +793,19 @@ CONTENT_FOOTER_FORMATS = {
             "email": BLOG_EMAIL,
             "author": BLOG_AUTHOR,
             "date": time.gmtime().tm_year,
-            "license": LICENSE
+            "license": "License",
+            "contents": "Contents",
+            "copyright": "&copy;"
+        }
+    ),
+    "ur": (("جملہ حقوق محفوذ",),
+        {
+            "email": BLOG_EMAIL,
+            "author": "دارلسالیکین",
+            "date": time.gmtime().tm_year,
+            "license": "لائیسنس",
+            "contents": "مواد",
+            "copyright": "جملہ حقوق محفوظ"
         }
     )
 }
