@@ -773,7 +773,7 @@ LICENSE = ""
 
 # A small copyright notice for the page footer (in HTML).
 # (translatable)
-CONTENT_FOOTER = '{contents} {copyright} {date} {author} - <a href="license.html">{license}</a> - Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a>'
+CONTENT_FOOTER = '{contents} {copyright} {date} {author} - <a href="{license_file}">{license}</a> - Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a>'
 
 # Things that will be passed to CONTENT_FOOTER.format().  This is done
 # for translatability, as dicts are not formattable.  Nikola will
@@ -795,7 +795,8 @@ CONTENT_FOOTER_FORMATS = {
             "date": time.gmtime().tm_year,
             "license": "License",
             "contents": "Contents",
-            "copyright": "&copy;"
+            "copyright": "&copy;",
+            "license_file": "license.html"
         }
     ),
     "ur": (("جملہ حقوق محفوذ",),
@@ -805,7 +806,8 @@ CONTENT_FOOTER_FORMATS = {
             "date": time.gmtime().tm_year,
             "license": "لائیسنس",
             "contents": "مواد",
-            "copyright": "جملہ حقوق محفوظ"
+            "copyright": "جملہ حقوق محفوظ",
+            "license_file": "licenseur.html"
         }
     )
 }
